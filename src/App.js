@@ -1,9 +1,9 @@
 import "./styles.css";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./components/organisms/user/UserCard";
-import { HeaderOnly } from "./components/templates/HeaderOnly";
 import { BrowserRouter } from "react-router-dom";
 import { DefaultLayout } from "./components/templates/DefaultLayout";
+import { RootRouter } from "./router/RootRouter";
 
 const user = {
   name: "わんわん",
@@ -16,12 +16,5 @@ const user = {
 };
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <DefaultLayout>
-        <SearchInput />
-        <UserCard user={user} />
-      </DefaultLayout>
-    </BrowserRouter>
-  );
+  return <RootRouter />;
 }
