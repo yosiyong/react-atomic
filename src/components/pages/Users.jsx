@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
-import { UserContext } from "../../providers/UserProvider";
-import { useContext } from "react";
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
 //空の配列を用意して、テストデータを埋める
 const users = [...Array(10).keys()].map((val) => {
@@ -22,7 +22,13 @@ const users = [...Array(10).keys()].map((val) => {
 export const Users = () => {
   //const { state } = useLocation();
   //console.log(state);
-  const { userInfo, setUserInfo } = useContext(UserContext);
+
+  //Contextでグローバルstateを保持する場合
+  //const { userInfo, setUserInfo } = useContext(UserContext);
+
+  //Recoliでグローバルstateを保持する場合
+  const [userInfo, setUserInfo] = useRecoilState(userState);
+
   const onClickSwitch = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
 
   return (

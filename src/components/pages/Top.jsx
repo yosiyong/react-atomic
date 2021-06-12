@@ -1,11 +1,16 @@
-import { useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { UserContext } from "../../providers/UserProvider";
+import { userState } from "../../store/userState";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
 export const Top = () => {
   const history = useHistory();
-  const { setUserInfo } = useContext(UserContext);
+
+  //Contextでグローバルstateを保持する場合
+  //const { setUserInfo } = useContext(UserContext);
+
+  //Recoliでグローバルstateを保持する場合
+  const setUserInfo = useSetRecoilState(userState);
 
   const onClickAdmin = () => {
     //history.push({ pathname: "/users", state: { isAdmin: true } });
