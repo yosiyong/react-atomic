@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
-import { useLocation } from "react-router-dom";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
 import { UserContext } from "../../providers/UserProvider";
 import { useContext } from "react";
